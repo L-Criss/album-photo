@@ -1,0 +1,20 @@
+<?php
+// test_db.php
+
+//$host = '192.168.100.81'; // IP de tu PC
+$host = 'host.docker.internal';
+$db   = 'album_photo';
+$user = 'lino.avega';
+$pass = 'Tecsup123**';
+$port = 3306;
+
+try {
+    $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8";
+    $pdo = new PDO($dsn, $user, $pass, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+    echo "¡Conexión exitosa a la base de datos!";
+} catch (PDOException $e) {
+    echo "Error de conexión: " . $e->getMessage();
+}

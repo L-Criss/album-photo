@@ -1,0 +1,4 @@
+.env
+*.log
+test_db.txt
+public/uploads/
